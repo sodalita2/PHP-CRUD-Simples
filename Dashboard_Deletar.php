@@ -10,6 +10,13 @@
 	
 	if (isset($_POST['idPessoa-alterar'])){
 	    
+	    $idPessoa = $_GET['idPessoa'];
+	    
+	    $_SESSION['idPessoa'] = $idPessoa;
+	    
+	    header("location:Dashboard_Deletar_Unico.php");
+	    
+	    
 	}elseif (isset($_POST['Deletar-pessoa-post'])){
 	   
 	    if (!preg_match("/^[a-zA-Z -]+$/",$_POST['nome'])){
@@ -63,7 +70,9 @@
     	 		<h3>idPessoa: <?php echo $Pessoa_array["idPessoa"];?></h3>
     	 		<h3>Nome: <?php echo $Pessoa_array["Nome"];?></h3>
     	 		<h3>Idade: <?php echo $Pessoa_array["Idade"];?> </h3>
-    	 		<button><a class="dash-botao" href="Dashboard_Deletar_Unico.php<?php echo "?idPessoa=".$Pessoa_array["idPessoa"]?>">Deletar esta pessoa</a></button>
+    	 		<form action="Dashboard_Deletar.php?idPessoa=<?php echo $Pessoa_array["idPessoa"]?>" method="post">
+    	 		<button type="submit" name="idPessoa-alterar">Deletar esta pessoa</button>
+    	 		</form>
     	 	</div>
     	 	
 	    <?php

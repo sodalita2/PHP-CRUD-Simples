@@ -10,13 +10,15 @@
 	
 	$conn = mysqli_connect("localhost","root","password");
 	
-	$idPessoa = $_GET["idPessoa"];
+	$idPessoa = $_SESSION["idPessoa"];
 	
 	$query_deletar = "DELETE FROM teste_db.tb_pessoa WHERE idPessoa = '$idPessoa';";
 	
 	$conn_query_deletar = mysqli_query($conn,$query_deletar);
 	
 	mysqli_query($conn,$conn_query_deletar);
+	
+	unset($_SESSION["idPessoa"]);
 	
 	header("location:Dashboard.php");
 	?>

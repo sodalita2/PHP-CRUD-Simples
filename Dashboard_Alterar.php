@@ -10,6 +10,17 @@
 	
 	if (isset($_POST['idPessoa-alterar'])){
 	    
+	    $idPessoa = $_GET['idPessoa'];
+	    $Nome = $_GET['nome'];
+	    $Idade = $_GET['idade'];
+	        
+	    $_SESSION['idPessoa'] = $idPessoa;
+	    $_SESSION['Nome'] = $Nome;
+	    $_SESSION['Idade'] = $Idade;
+	    
+	    header("location:Dashboard_Alterar_Unico.php");
+	    
+	    
 	}elseif (isset($_POST['pesquisar-pessoa-alterar-post'])){
 	   
 	    if (!preg_match("/^[a-zA-Z -]+$/",$_POST['nome'])){
@@ -63,7 +74,9 @@
     	 		<h3>idPessoa: <?php echo $Pessoa_array["idPessoa"];?></h3>
     	 		<h3>Nome: <?php echo $Pessoa_array["Nome"];?></h3>
     	 		<h3>Idade: <?php echo $Pessoa_array["Idade"];?> </h3>
-    	 		<button><a class="dash-botao" href="Dashboard_Alterar_Unico.php?idPessoa=<?php echo $Pessoa_array["idPessoa"]."&nome=".$Pessoa_array["Nome"]."&idade=".$Pessoa_array["Idade"]?>">Alterar esta pessoa</a></button>
+   				<form action="Dashboard_Alterar.php?idPessoa=<?php echo $Pessoa_array["idPessoa"]."&nome=".$Pessoa_array["Nome"]."&idade=".$Pessoa_array["Idade"]?>" method="post">
+    	 		<button type="submit" name="idPessoa-alterar">Alterar esta pessoa</button>
+    	 		</form>
     	 	</div>
     	 	
 	    <?php

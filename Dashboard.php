@@ -7,6 +7,7 @@
 <main>
 	<?php 
 	session_start();
+	
 	?>
 	
 	<div class="auth-name">

@@ -15,3 +15,5 @@
     <br>
     <button type="submit"><a class="dash-botao" href="cadastroUsuario.php">Cadastrar Usuario</a></button>
 </body>
+</html>
+</DOCTYPE>
